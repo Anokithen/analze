@@ -12,28 +12,6 @@ import { Button } from "@/components/ui/button"
 export default function StudentProfileView() {
     const { id } = useParams()
 
-    // const [delstudent,setDelstudent] = useState<Dele | null>(null)
-
-
-  // const deleteStudent = async () => {
-  
-    
-  // try {
-  //   const response = await axios.delete(`https://jey-student-api.up.railway.app/api/students/${id}`);
-  //   console.log('Deleted successfully:', response.status);
-  // } catch (error) {
-  //   console.error('Error deleting user:', error);
-  // }
-  // useEffect(() => {
-  //   deleteStudent()
-  // }, [id])
-
-  // }
-
-
-
-  
-
   const [student, setStudent] = useState<Student | null>(null)
 
   const fetchStudent = async () => {
@@ -43,7 +21,6 @@ export default function StudentProfileView() {
       )
       setStudent(response.data.student)
     } catch (error) {
-      console.error("Error fetching student:", error)
     }
   }
 
@@ -57,9 +34,9 @@ export default function StudentProfileView() {
 
   return (
     <>
-    {/* <div>
+    <div>
      <Button> <Link href={`/students/${id}/edit`}>Delete</Link></Button>
-    </div> */}
+    </div>
     <div className="space-y-2 p-6">
       <Link
         href="/students"
@@ -68,7 +45,6 @@ export default function StudentProfileView() {
         &larr; Back to Students
       </Link>
       <h1 className="text-2xl font-bold">{student.full_name}</h1>
-      {/* <button onclick ={"deleteStudent()"}></button> */}
 
       <p>ID: {student.id}</p>
       <p>Email: {student.email}</p>

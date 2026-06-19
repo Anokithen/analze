@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react'
 
 export default function SimpleFormDesign() {
@@ -10,9 +11,41 @@ export default function SimpleFormDesign() {
         borderRadius: "5px"
     }
 
-    function submitData(e:React.FormEvent<HTMLFormElement>){
+    async function submitData(e:React.FormEvent<HTMLFormElement>){
         e.preventDefault();
-        alert("Form submitted")
+        
+
+        const form = e.currentTarget
+
+        const payload = {
+            full_name:form.fullName.value,
+            email:form.email.value,
+            age:form.age.value,
+            join_date:form.joinDate.value,
+        }
+       
+    //    await axios
+    //   .post("https://jey-student-api.up.railway.app/api/students", payload)
+    //   .then(() => {
+    //     alert("Student created successfully!")
+    //     form.reset()
+    //   })
+    //   .catch(() => {
+    //     alert("Failed to create student")
+    //   })
+
+
+
+        try{
+            await axios.post("https://jey-student-api.up.railway.app/api/students",payload)
+            alert("Student Created successfull")
+            form.reset()
+        }catch(error){
+            alert("failed to create students",)
+            
+        }
+       
+
     }
   return (
     <div>

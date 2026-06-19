@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import StudentCreateFormView from "@/sections/student/view/student-create-form-view"
 
+import StudentNewEditForm from "@/sections/student/student-create-form"
+
 export default function NewCode() {
   const [formData, setFormData] = useState({
     age: "",
@@ -86,7 +88,7 @@ export default function NewCode() {
         <input
           type="number"
           step="0.01"
-          placeholder="CGPA (e.g. 3.99)"
+          placeholder="CGPA ( StudentCreateFormViewe.g. 3.99)"
           value={formData.cgpa}
           onChange={(e) => setFormData({ ...formData, cgpa: e.target.value })}
           className="w-full rounded border p-2"
@@ -118,8 +120,10 @@ export default function NewCode() {
           Add Student
         </button>
       </div> */}
-      <div>
-        <StudentCreateFormView />
+      <div className="flex justify-center mt-50">
+        {/* <StudentCreateFormView /> */}
+        {/* <StudentForm /> */}
+        < StudentCreateFormView/>
       </div>
     </>
   )
